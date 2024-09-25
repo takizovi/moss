@@ -151,16 +151,16 @@ void ButtonCheck() {
     x-=mouseX*noiseSize/PixelSize/2;
     y-=mouseY*noiseSize/PixelSize/2;
   }
-  if (keyPresses['S']) {
+  if (keyPresses['s']) {
     y+=noiseSize*5;
   }
-  if (keyPresses['W']) {
+  if (keyPresses['w']) {
     y-=noiseSize*5;
   }
-  if (keyPresses['D']) {
+  if (keyPresses['d']) {
     x+=noiseSize*5;
   }
-  if (keyPresses['A']) {
+  if (keyPresses['a']) {
     x-=noiseSize*5;
   }
   //if (keyPresses['4']) {
@@ -191,6 +191,7 @@ void ButtonCheck() {
 void Debug() {
   if (_long>1)text(pix[_long-2].killCount, 10, 10, 10);
   text(_long, 10, 20);
+  text(seed, 10, 30);
   text(debs.prewArea, 10, 40);
   //text();
 }
@@ -223,10 +224,10 @@ void keyPressed() {
   keyPresses[keyCode] = true;
 }
 void keyReleased() {
-  if (keyPresses[' ']) {
-    save(str(screens)+".png");
-    screens++;
-  }
+  //if (keyPresses[' ']) {
+    //save(str(screens)+".png");
+    //screens++;
+  //}
   keyPresses[keyCode] = false;
 }
     </script>
