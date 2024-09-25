@@ -222,6 +222,7 @@ class Pixel {
 
 void keyPressed() {
   keyPresses[keyCode] = true;
+  keyPresses[key] = true;
 }
 void keyReleased() {
   //if (keyPresses[' ']) {
@@ -229,6 +230,7 @@ void keyReleased() {
     //screens++;
   //}
   keyPresses[keyCode] = false;
+  keyPresses[key] = false;
 }
     </script>
 </body>
