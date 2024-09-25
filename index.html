@@ -14,7 +14,7 @@ int _long = 1;
 Pixel[] pix;
 float x, y;
 float noiseSize = 0.005;
-long seed;
+int seed;
 boolean walkMode;
 color fillcolor;
 
@@ -38,7 +38,7 @@ void setup() {
 
   noStroke();
 
-  seed = (long)random(99999);
+  seed = (int)random(999999999);
 
   pix[0] = new Pixel(1, 1, 0.89, 0);
 
