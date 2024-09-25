@@ -220,20 +220,20 @@ class Pixel {
   }
 }
 
-void mouseClicked()
+void mousePressed()
 {
     if(mouseButton ==LEFT) {
         if(mouseY<=100){
-        y-=noiseSize*5
+        y-=noiseSize;
         }
         if(mouseY>=height-100){
-        y+=noiseSize*5
+        y+=noiseSize;
         }
         if(mouseX<=100){
-        x-=noiseSize*5
+        x-=noiseSize;
         }
         if(mouseX>=width-100){
-        x+=noiseSize*5
+        x+=noiseSize;
         }
     } 
 }
