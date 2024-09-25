@@ -220,6 +220,24 @@ class Pixel {
   }
 }
 
+void mouseClicked()
+{
+    if(mouseButton ==LEFT) {
+        if(mouseY<=100){
+        y-=noiseSize*5
+        }
+        if(mouseY>=height-100){
+        y+=noiseSize*5
+        }
+        if(mouseX<=100){
+        x-=noiseSize*5
+        }
+        if(mouseX>=width-100){
+        x+=noiseSize*5
+        }
+    } 
+}
+
 void keyPressed() {
   keyPresses[keyCode] = true;
   keyPresses[key] = true;
