@@ -48,7 +48,7 @@ void draw() {
   ColorSelector();
   ButtonCheck();
   for (int i = 0; i<_long; i++) {
-    if (dist(x+width/2, y+height/2, pix[i].pix_x/noiseSize-x/noiseSize, pix[i].pix_y/noiseSize-y/noiseSize)<400f) {
+    //if (dist(x+width/2, y+height/2, pix[i].pix_x/noiseSize-x/noiseSize, pix[i].pix_y/noiseSize-y/noiseSize)<400f) {
       if (i>_long-200) {
 
         if (pix[i].area<0.5) {
@@ -59,7 +59,7 @@ void draw() {
           //debs.ops++;
         }
       }
-    }
+    //}
   }
   Debug();
 }
@@ -74,31 +74,53 @@ void ColorSelector() {
       float yfirst = noise(pix_y*noiseSize+y, pix_x*noiseSize+x);
       float xsmal = noise(pix_x*noiseSize*4+x*4, pix_y*noiseSize*4+y*4);
       float ysmal = noise(pix_y*noiseSize*4+y*4, pix_x*noiseSize*4+x*4);
-      if (dist(x+width/2, y+height/2, pix_x, pix_y)<400f) {
-        if (xfirst>0.55) {/*fill(#6dd5ed);*/
+      //float xheight = noise(pix_x*noiseSize/16+x/16, pix_y*noiseSize/16+y/16)/3;
+      //xheight =0;
+      float HIGHTEDxfirst =xfirst;
+      //if(xheight>0.45/3&&xheight<0.55/3){
+      //HIGHTEDxfirst = xfirst-xheight-0.45/3;}
+      
+      float HIGHTEDyfirst = yfirst;
+      float HIGHTEDxsmal = xsmal;
+      float HIGHTEDysmal = ysmal;
+      /*
+      HIGHTEDyfirst = yfirst-xheight;
+      HIGHTEDxsmal = xsmal-xheight;
+      HIGHTEDysmal = ysmal-xheight;      */
+      //if (dist(x+width/2, y+height/2, pix_x, pix_y)<400f) {
+        if (HIGHTEDxfirst>0.55) {/*fill(#6dd5ed);*/
           fillcolor = (color(33, 147, 176, 200));
         }
-        if (xfirst<=0.55&&xfirst>0.5) {/*fill(#6dd5ed);*/
+        if (HIGHTEDxfirst<=0.55&&HIGHTEDxfirst>0.5) {/*fill(#6dd5ed);*/
           fillcolor = (color(247, 247, 22, 200));
         }
-        if (xfirst<0.21) {/*fill(#6dd5ed);*/
-          fillcolor = (color(245, 245, 245, 200)); //белый
+        if (HIGHTEDxfirst<0.21&&HIGHTEDxfirst>0.17) {/*fill(#6dd5ed);*/
+          fillcolor = (color(235, 235, 235, 200)); //менее белый
         }
-        if (xfirst<0.24&&xfirst>0.21) {/*fill(#6dd5ed);      серый*/
-          fillcolor = (color(160, 160, 160, 200));
+        if (HIGHTEDxfirst<0.17&&HIGHTEDxfirst>0.14) {
+          fillcolor = (color(245, 245, 245, 200)); //чуть менее белый
         }
-        if (xfirst>0.24&&xfirst<0.4) {/*fill(#6dd5ed);       зелёный*/
+        if (HIGHTEDxfirst<0.14&&HIGHTEDxfirst>0.1) {
+          fillcolor = (color(250, 250, 250, 200)); //почти белый
+        }
+        if (HIGHTEDxfirst<0.1) {/*fill(#6dd5ed);*/
+          fillcolor = (color(255, 255, 255, 200)); //белый
+        }
+        if (HIGHTEDxfirst<0.24&&HIGHTEDxfirst>0.21) {/*fill(#6dd5ed);      серый*/
+          fillcolor = (color(220, 220, 220, 200));
+        }
+        if (HIGHTEDxfirst>0.24&&HIGHTEDxfirst<0.4) {/*fill(#6dd5ed);       зелёный*/
           fillcolor = (color(0, 144, 10, 200));
-          if (yfirst<0.45&&yfirst>0.43) {
+          if (HIGHTEDyfirst<0.45&&HIGHTEDyfirst>0.43) {
             fillcolor = (color(33, 147, 176, 200));
           }
         }
-        if (xfirst<0.5&&xfirst>0.4) {/*fill(#6dd5ed);      салатовый*/
+        if (HIGHTEDxfirst<0.5&&HIGHTEDxfirst>0.4) {/*fill(#6dd5ed);      салатовый*/
           fillcolor = (color(0, 198, 11, 200));
-          if (yfirst<0.45&&yfirst>0.43) {
+          if (HIGHTEDyfirst<0.45&&HIGHTEDyfirst>0.43) {
             fillcolor = (color(33, 147, 176, 200));
           }
-          if (yfirst<0.4&&yfirst>0.34) {
+          if (HIGHTEDyfirst<0.4&&HIGHTEDyfirst>0.34) {
             fillcolor = (color(33, 147, 176, 200));
           }
         }
@@ -107,12 +129,12 @@ void ColorSelector() {
           //if (dist(x+width/2, y+height/2, pix[i].pix_x/noiseSize-x/noiseSize/pix[i].deepth, pix[i].pix_y/noiseSize-y/noiseSize/pix[i].deepth)<400f) {
           if (dist(pix_x, pix_y, pix[i].pix_x/noiseSize-x/noiseSize, pix[i].pix_y/noiseSize-y/noiseSize)<pix[i].area/noiseSize) {
             if (fillcolor!=color(51, 100, 48, 200)&&fillcolor!=color(51, 107, 48, 200)&&fillcolor!=color(255, 0, 0, 200)) { /////////&&fillcolor!=(color(245, 245, 245, 200))&&fillcolor!=(color(160, 160, 160, 200))&&fillcolor!=(color(33, 147, 176, 200))
-              if ((xsmal<0.45&&xsmal>0.43)||(ysmal<0.45&&ysmal>0.43)) {
+              if ((HIGHTEDxsmal<0.45&&HIGHTEDxsmal>0.43)||(HIGHTEDysmal<0.45&&HIGHTEDysmal>0.43)) {
                 fillcolor = color(51, 107, 48, 200);
               } else {
                 fillcolor = color(51, 100, 48, 200);
               }
-              if ((xsmal<0.45&&xsmal>0.43)||(ysmal<0.45&&ysmal>0.43)) {
+              if ((HIGHTEDxsmal<0.45&&HIGHTEDxsmal>0.43)||(HIGHTEDysmal<0.45&&HIGHTEDysmal>0.43)) {
                 if (pix[i].type == 1)fillcolor = color(255, 0, 0, 200);
               }
 
@@ -133,7 +155,11 @@ void ColorSelector() {
         //prewFill = fillcolor;
         fill(255-255*noise(pix_x*noiseSize+x, pix_y*noiseSize+y), 111);
         rect(pix_x, pix_y, PixelSize, PixelSize);
-      }
+          /*
+        fill(255-255*xheight, 100);
+        rect(pix_x, pix_y, PixelSize, PixelSize);
+          */
+      //}//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
   }
 }
@@ -239,15 +265,15 @@ void mousePressed()
 }
 
 void keyPressed() {
-  keyPresses[keyCode] = true;
+  //keyPresses[keyCode] = true;
   keyPresses[key] = true;
 }
 void keyReleased() {
   //if (keyPresses[' ']) {
-    //save(str(screens)+".png");
-    //screens++;
-  //}
-  keyPresses[keyCode] = false;
+  //  save(str(screens)+".png");
+  //  screens++;
+  }
+  //keyPresses[keyCode] = false;
   keyPresses[key] = false;
 }
     </script>
